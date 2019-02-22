@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  owner: MyString
+  interested: MyString
+  attending: false
+  description: MyText
+  location: MyText
+  minimum: 1
+  maximum: 1
+  date: 2019-02-22 15:12:38
+  price: MyString
+  doodle: MyString
+  state: MyString
+
+two:
+  title: MyString
+  owner: MyString
+  interested: MyString
+  attending: false
+  description: MyText
+  location: MyText
+  minimum: 1
+  maximum: 1
+  date: 2019-02-22 15:12:38
+  price: MyString
+  doodle: MyString
+  state: MyString

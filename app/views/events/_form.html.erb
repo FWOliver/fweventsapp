@@ -1,0 +1,77 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :owner %>
+    <%= form.text_field :owner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interested %>
+    <%= form.text_field :interested %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attending %>
+    <%= form.check_box :attending %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_area :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :minimum %>
+    <%= form.number_field :minimum %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maximum %>
+    <%= form.number_field :maximum %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :doodle %>
+    <%= form.text_field :doodle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

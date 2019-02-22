@@ -1,0 +1,85 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateEvents (20190222151238)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "owner" varchar, "interested" varchar, "attending" boolean, "description" text, "location" text, "minimum" integer, "maximum" integer, "date" datetime, "price" varchar, "doodle" varchar, "state" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190222151238_create_events.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190222151238"]]
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-22 15:12:52.780479"], ["updated_at", "2019-02-22 15:12:52.780479"]]
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/oliver/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Started GET "/" for 127.0.0.1 at 2019-02-22 15:13:08 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/oliver/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/oliver/.rvm/gems/ruby-2.6.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/oliver/.rvm/gems/ruby-2.6.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 14ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-02-22 15:13:14 +0000
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:25
+  Rendered events/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1042ms (Views: 1038.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2019-02-22 15:13:17 +0000
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (25.3ms)
+  Rendered events/new.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 89ms (Views: 74.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2019-02-22 15:13:57 +0000
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6GmokZ109hoUQXtTYXFPanD7SCEdI1xe8AWwvXSqAMVq+pQZf31v5hA67VW4vMEjM2FMiZ6gpu6L0qjHcVK5Lg==", "event"=>{"title"=>"sample ", "owner"=>"Oliver", "interested"=>"Many", "attending"=>"1", "description"=>"this is describing the events", "location"=>"London E1 6px", "minimum"=>"3", "maximum"=>"6", "date(1i)"=>"2019", "date(2i)"=>"4", "date(3i)"=>"22", "date(4i)"=>"15", "date(5i)"=>"13", "price"=>"12", "doodle"=>"http://link.e.doodle.com/wf/click?upn=8dNs8i4ZDyStMeI1Sn5r9JSbK59YEKy2D80mjr9TQq4wwf6WsR2x3APAI0wpaFJS07W4NsNXTtR4oycL8zT9kdVURt6QHS37k-2FQEcNxMLuZr-2BVmPF-2B5tFO1DA4voH6FKAGC0L8yPta3kWxz0cGIeWK7Vnpzg2h3YdTyiVaUc-2FE0yrfB1rLGeaBTQlS7O1vBGq4SPlwHxVQM9pahTzj952qwyIcxQLaACenM10pSMDZQ-3D_h6TCXGEWuf7VA97FHsuU-2FTA8hKGueia5IAaqbVyMCA-2BXhx5igD7XMHPQ61xe2X1hTOvLGPVpcVD9wzFC-2FMLSYEMbRIKg6gyejEHEXVsWO7XBSEXODPawGqCAMWfWDpOv2sTDtFsomH2bWr1r-2B116dliZrOsHffUaaPgOhLLmE89Ml8K0I9HbCy1T7u35JvBGMEjdKBbrhajjZtENpJ3bHZ8E4XmUfkXHrJbfpYxtS9CntwsNQgdSlITGve97ab3P0xywBl4W8YVcpgWI5m-2FyeA-3D-3D", "state"=>"Proposed"}, "commit"=>"Create Event"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:30
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "owner", "interested", "attending", "description", "location", "minimum", "maximum", "date", "price", "doodle", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "sample "], ["owner", "Oliver"], ["interested", "Many"], ["attending", 1], ["description", "this is describing the events"], ["location", "London E1 6px"], ["minimum", 3], ["maximum", 6], ["date", "2019-04-22 15:13:00"], ["price", "12"], ["doodle", "http://link.e.doodle.com/wf/click?upn=8dNs8i4ZDyStMeI1Sn5r9JSbK59YEKy2D80mjr9TQq4wwf6WsR2x3APAI0wpaFJS07W4NsNXTtR4oycL8zT9kdVURt6QHS37k-2FQEcNxMLuZr-2BVmPF-2B5tFO1DA4voH6FKAGC0L8yPta3kWxz0cGIeWK7Vnpzg2h3YdTyiVaUc-2FE0yrfB1rLGeaBTQlS7O1vBGq4SPlwHxVQM9pahTzj952qwyIcxQLaACenM10pSMDZQ-3D_h6TCXGEWuf7VA97FHsuU-2FTA8hKGueia5IAaqbVyMCA-2BXhx5igD7XMHPQ61xe2X1hTOvLGPVpcVD9wzFC-2FMLSYEMbRIKg6gyejEHEXVsWO7XBSEXODPawGqCAMWfWDpOv2sTDtFsomH2bWr1r-2B116dliZrOsHffUaaPgOhLLmE89Ml8K0I9HbCy1T7u35JvBGMEjdKBbrhajjZtENpJ3bHZ8E4XmUfkXHrJbfpYxtS9CntwsNQgdSlITGve97ab3P0xywBl4W8YVcpgWI5m-2FyeA-3D-3D"], ["state", "Proposed"], ["created_at", "2019-02-22 15:13:57.604425"], ["updated_at", "2019-02-22 15:13:57.604425"]]
+  ↳ app/controllers/events_controller.rb:30
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:30
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-02-22 15:13:57 +0000
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:67
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-02-22 15:14:03 +0000
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:25
+  Rendered events/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
